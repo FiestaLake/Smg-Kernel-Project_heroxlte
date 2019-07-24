@@ -129,10 +129,14 @@ static int __init console_setup(char *str)
 {
 	get_option(&str, &sys_rev);
 	mif_info("board_rev : %d\n", sys_rev);
-	
+
 	return 0;
 }
+#ifdef CONFIG_MODEM_PIE_REV
 __setup("androidboot.revision=", console_setup);
+#else
+__setup("androidboot.hw_rev=", console_setup);
+#endif
 #else
 static int get_system_rev(struct device_node *np)
 {
