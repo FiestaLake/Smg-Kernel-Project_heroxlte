@@ -2292,32 +2292,32 @@ static int concate_revision_bcm4359(dhd_bus_t *bus, char *fw_path, char *nv_path
 	chip_ver = bus->sih->chiprev;
 	if (chip_ver == 4) {
 		DHD_ERROR(("----- CHIP 4359 B0 -----\n"));
-		strncat(chipver_tag, "_b0", strlen("_b0"));
+		strcat(chipver_tag, "_b0");
 	} else if (chip_ver == 5) {
 		DHD_ERROR(("----- CHIP 4359 B1 -----\n"));
-		strncat(chipver_tag, "_b1", strlen("_b1"));
+		strcat(chipver_tag, "_b1");
 	} else if (chip_ver == 9) {
 		DHD_ERROR(("----- CHIP 4359 C0 -----\n"));
 #if defined(SUPPORT_MULTIPLE_MODULE_CIS) && defined(USE_CID_CHECK) && \
 	defined(SUPPORT_BCM4359_MIXED_MODULES)
 		if (dhd_check_module(VENDOR_MURATA)) {
-			strncat(chipver_tag_nv, VNAME_DELIM, strlen(VNAME_DELIM));
-			strncat(chipver_tag_nv, VENDOR_MURATA, strlen(VENDOR_MURATA));
+			strcat(chipver_tag_nv, VNAME_DELIM);
+			strcat(chipver_tag_nv, VENDOR_MURATA);
 		} else if (dhd_check_module(VENDOR_WISOL)) {
-			strncat(chipver_tag_nv, VNAME_DELIM, strlen(VNAME_DELIM));
-			strncat(chipver_tag_nv, VENDOR_WISOL, strlen(VENDOR_WISOL));
+			strcat(chipver_tag_nv, VNAME_DELIM);
+			strcat(chipver_tag_nv, VENDOR_WISOL);
 		}
 		/* In case of SEMCO module, extra vendor string doen not need to add */
-		strncat(chipver_tag_nv, "_c0", strlen("_c0"));
+		strcat(chipver_tag_nv, "_c0");
 #endif /* SUPPORT_MULTIPLE_MODULE_CIS && USE_CID_CHECK && SUPPORT_BCM4359_MIXED_MODULES */
-		strncat(chipver_tag, "_c0", strlen("_c0"));
+		strcat(chipver_tag, "_c0");
 #if defined(CONFIG_WLAN_GRACE) || defined(CONFIG_SEC_GRACEQLTE_PROJECT) || \
 	defined(CONFIG_SEC_LYKANLTE_PROJECT) || defined(CONFIG_SEC_KELLYLTE_PROJECT)
 		DHD_ERROR(("----- Adding _plus string -----\n"));
-		strncat(chipver_tag, "_plus", strlen("_plus"));
+		strcat(chipver_tag, "_plus");
 #if defined(SUPPORT_MULTIPLE_MODULE_CIS) && defined(USE_CID_CHECK) && \
 	defined(SUPPORT_BCM4359_MIXED_MODULES)
-		strncat(chipver_tag_nv, "_plus", strlen("_plus"));
+		strcat(chipver_tag_nv, "_plus");
 #endif /* SUPPORT_MULTIPLE_MODULE_CIS && USE_CID_CHECK && SUPPORT_BCM4359_MIXED_MODULES */
 #endif /* CONFIG_WLAN_GRACE || CONFIG_SEC_GRACEQLTE_PROJECT || CONFIG_SEC_LYKANLTE_PROJECT ||
 	* CONFIG_SEC_KELLYLTE_PROJECT
@@ -2349,7 +2349,7 @@ static int concate_revision_bcm4359(dhd_bus_t *bus, char *fw_path, char *nv_path
 			 * loading B90S FW force for initial MFG boot up.
 			*/
 			if (chip_ver == 5) {
-				strncat(fw_path, "_b90s", strlen("_b90s"));
+				strcat(fw_path, "_b90s");
 			}
 			strcat(fw_path, chipver_tag);
 			strcat(nv_path, chipver_tag);

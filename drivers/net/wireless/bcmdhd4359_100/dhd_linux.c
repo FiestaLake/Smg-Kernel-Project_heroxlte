@@ -20523,7 +20523,7 @@ dhd_set_blob_support(dhd_pub_t *dhdp, char *fw_path)
 		DHD_ERROR(("%s: ----- blob file exists (%s)-----\n", __FUNCTION__, filepath));
 		dhdp->is_blob = TRUE;
 #if defined(CONCATE_BLOB)
-		strncat(fw_path, "_blob", strlen("_blob"));
+		strcat(fw_path, "_blob");
 #else
 		BCM_REFERENCE(fw_path);
 #endif /* SKIP_CONCATE_BLOB */
