@@ -186,8 +186,8 @@ static noinline void __vnswap_make_request(struct bio *bio, int rw)
 		index++;
 	}
 
-	bio->bi_error = 0;
-	bio_endio(bio);
+	set_bit(BIO_UPTODATE, &bio->bi_flags);
+	bio_endio(bio, 0);
 
 	return;
 
@@ -198,7 +198,7 @@ out_error:
 /*
  * Handler function for all vnswap I/O requests.
  */
-static blk_qc_t vnswap_make_request(struct request_queue *queue,
+static void vnswap_make_request(struct request_queue *queue,
 				    struct bio *bio)
 {
 	// Deliberately error out on kernel swap
@@ -207,7 +207,7 @@ static blk_qc_t vnswap_make_request(struct request_queue *queue,
 	else
 		__vnswap_make_request(bio, bio_data_dir(bio));
 
-	return BLK_QC_T_NONE;
+	return;
 }
 
 static const struct block_device_operations vnswap_fops = {
