@@ -1040,6 +1040,8 @@ static int max77854_chg_get_property(struct power_supply *psy,
 	return 0;
 }
 
+bool is_charging;
+
 #if defined(CONFIG_UPDATE_BATTERY_DATA)
 static int max77854_charger_parse_dt(struct max77854_charger_data *charger);
 #endif
@@ -1071,6 +1073,7 @@ static int max77854_chg_set_property(struct power_supply *psy,
 			charger->is_charging = true;
 			break;
 		}
+		is_charging = charger->is_charging;
 		max77854_set_buck(charger, buck_state);
 		max77854_set_charger_state(charger, charger->is_charging);
 		break;
