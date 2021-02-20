@@ -361,6 +361,8 @@ static int da9155_chg_get_property(struct power_supply *psy,
 	return 0;
 }
 
+bool is_charging;
+
 static int da9155_chg_set_property(struct power_supply *psy,
 	enum power_supply_property psp, const union power_supply_propval *val)
 {
@@ -371,6 +373,7 @@ static int da9155_chg_set_property(struct power_supply *psy,
 	case POWER_SUPPLY_PROP_CHARGING_ENABLED:
 		charger->is_charging =
 			(val->intval == SEC_BAT_CHG_MODE_CHARGING) ? ENABLE : DISABLE;
+		is_charging = charger->is_charging;
 		da9155_set_charger_state(charger, charger->is_charging);
 		break;
 	case POWER_SUPPLY_PROP_CURRENT_NOW:
