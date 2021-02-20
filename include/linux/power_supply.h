@@ -300,6 +300,13 @@ struct power_supply {
 #endif
 };
 
+extern bool is_charging;
+
+static inline bool device_is_charging(void)
+{
+	return is_charging;
+}
+
 /*
  * This is recommended structure to specify static power supply parameters.
  * Generic one, parametrizable for different power supplies. Power supply
