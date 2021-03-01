@@ -179,7 +179,8 @@ MAIN()
 {
 (
         echo "Building "$MODEL"..."
-        if [ $START_TIME == NULL ]; then
+        echo ""
+        if [ "$START_TIME" == NULL ]; then
 	        START_TIME=`date +%s`
         fi
 	FUNC_DELETE_PLACEHOLDERS
@@ -198,6 +199,7 @@ MAIN2()
 {
 (
         echo "Building "$MODEL"..."
+        echo ""
 	START_TIME=`date +%s`
 	FUNC_DELETE_PLACEHOLDERS
 	FUNC_BUILD_KERNEL
