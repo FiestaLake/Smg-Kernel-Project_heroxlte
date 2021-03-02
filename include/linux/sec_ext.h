@@ -80,7 +80,7 @@ enum
 extern int sec_set_param(unsigned long offset, char val);
 extern int sec_set_param_str(unsigned long offset, const char *val, int size);
 #else
-#define sec_set_param(a,b)			{-1)
+#define sec_set_param(a,b) -1
 #endif /* CONFIG_SEC_PARAM */
 
 #endif /* CONFIG_SEC_EXT */
