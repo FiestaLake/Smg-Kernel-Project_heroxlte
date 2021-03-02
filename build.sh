@@ -21,6 +21,7 @@ ZIP_NAME=$K_NAME-$MODEL.zip
 #GCC_DIR=~/toolchain/gcc-10/bin/aarch64-none-linux-gnu-
 GCC_DIR=~/toolchain/gcc-4/bin/aarch64-linux-android-
 CLANG_DIR=~/toolchain/proton-clang/bin/clang
+BUILD_JOB_NUMBER=`grep processor /proc/cpuinfo|wc -l`
 
 RDIR=$(pwd)
 OUTDIR=$RDIR/arch/$ARCH/boot
