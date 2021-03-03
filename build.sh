@@ -23,6 +23,7 @@ GCC_DIR=~/toolchain/gcc-4/bin/aarch64-linux-android-
 CLANG_DIR=~/toolchain/proton-clang/bin/clang
 BUILD_JOB_NUMBER=`grep processor /proc/cpuinfo|wc -l`
 
+START_TIME=`date +%s`
 RDIR=$(pwd)
 OUTDIR=$RDIR/arch/$ARCH/boot
 DTSDIR=$RDIR/arch/$ARCH/boot/dts
@@ -179,10 +180,6 @@ MAIN()
 {
 (
         echo "Building "$MODEL"..."
-        echo ""
-        if [ "$START_TIME" == NULL ]; then
-	        START_TIME=`date +%s`
-        fi
 	FUNC_DELETE_PLACEHOLDERS
 	FUNC_BUILD_KERNEL
 	FUNC_BUILD_DTB
@@ -199,8 +196,6 @@ MAIN2()
 {
 (
         echo "Building "$MODEL"..."
-        echo ""
-	START_TIME=`date +%s`
 	FUNC_DELETE_PLACEHOLDERS
 	FUNC_BUILD_KERNEL
 	FUNC_BUILD_DTB
