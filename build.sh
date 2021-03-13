@@ -17,7 +17,7 @@ export PLATFORM_VERSION=9.0.0
 DEFCONFIG=exynos8890_defconfig
 HEROLTE_LOG=herolte.log
 HERO2LTE_LOG=hero2lte.log
-ZIP_NAME=$K_NAME-$MODEL.zip
+ZIP_NAME=$K_NAME"_V()".zip
 GCC_DIR=aarch64-linux-android-
 CLANG_DIR=clang
 BUILD_JOB_NUMBER=`grep processor /proc/cpuinfo|wc -l`
@@ -38,6 +38,7 @@ PORT=0
 FUNC_DELETE_PLACEHOLDERS()
 {
 	find . -name \.placeholder -type f -delete
+	find . -name \.PLACEHOLDER -type f -delete
         echo "Placeholders are deleted from ramdisk."
 }
 

@@ -18,13 +18,16 @@ rm -rf $PWD/build/temp
 rm -rf $PWD/build/temp2
 rm -f $PWD/arch/arm64/configs/tmp_defconfig
 
-# Removed Created dtb Folder
-rm -rf $PWD/arch/arm64/boot/dtb
+# Remove Created dtb
+rm -f $RDIR/arch/$ARCH/boot/dts/*.dtb
+rm -f $RDIR/arch/$ARCH/boot/dtb/*.dtb
+rm -f $RDIR/arch/$ARCH/boot/boot.img-dtb
+rm -f $RDIR/arch/$ARCH/boot/boot.img-zImage
 
 # Recreate Ramdisk Placeholders
-echo "" > build/Q/ramdisk/apex/.placeholder
-echo "" > build/Q/ramdisk/debug_ramdisk/.placeholder
-echo "" > build/Q/ramdisk/dev/.placeholder
-echo "" > build/Q/ramdisk/mnt/.placeholder
-echo "" > build/Q/ramdisk/proc/.placeholder
-echo "" > build/Q/ramdisk/sys/.placeholder
+touch build/Q/ramdisk/apex/.PLACEHOLDER
+touch build/Q/ramdisk/debug_ramdisk/.PLACEHOLDER
+touch build/Q/ramdisk/dev/.PLACEHOLDER
+touch build/Q/ramdisk/mnt/.PLACEHOLDER
+touch build/Q/ramdisk/proc/.PLACEHOLDER
+touch build/Q/ramdisk/sys/.PLACEHOLDER
