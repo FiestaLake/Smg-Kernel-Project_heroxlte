@@ -101,3 +101,4 @@ all.config
 
 # Fetched Android config fragments
 *.log
+arch/arm64/configs/tmp_defconfig
