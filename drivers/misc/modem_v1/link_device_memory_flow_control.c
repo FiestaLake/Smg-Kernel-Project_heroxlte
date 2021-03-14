@@ -33,7 +33,7 @@
 
 void txq_stop(struct mem_link_device *mld, struct mem_ipc_device *dev)
 {
-	if (dev->id == IPC_RAW && atomic_read(&dev->txq.busy) == 0) {
+	if (dev->id == (int)IPC_RAW && atomic_read(&dev->txq.busy) == 0) {
 		struct link_device *ld = &mld->link_dev;
 		if (!test_bit(TXQ_STOP_MASK, &ld->tx_flowctrl_mask)) {
 			unsigned long flags;
@@ -75,7 +75,7 @@ void tx_flowctrl_suspend(struct mem_link_device *mld)
 
 void txq_start(struct mem_link_device *mld, struct mem_ipc_device *dev)
 {
-	if (dev->id == IPC_RAW && atomic_read(&dev->txq.busy) > 0) {
+	if (dev->id == (int)IPC_RAW && atomic_read(&dev->txq.busy) > 0) {
 		struct link_device *ld = &mld->link_dev;
 		if (test_bit(TXQ_STOP_MASK, &ld->tx_flowctrl_mask)) {
 			unsigned long flags;
