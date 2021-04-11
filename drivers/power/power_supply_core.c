@@ -293,13 +293,11 @@ int power_supply_is_system_supplied(void)
 				      __power_supply_is_system_supplied);
 
 	/*
-	 * Based on my testing, power_supply_is_system_supplied() returns 1
-	 * when the device is not charging which means there's no such class for
-	 * that power supply type and returns a value greater than 1 when a power supply is plugged in.
-	 * Change the return values to our desired values.
+	 * If no power class device was found at all, most probably we are
+	 * running on a desktop system, so assume we are on mains power.
 	 */
 	if (count == 0)
-		return 0;
+		return 1;
 
 	return error;
 }
