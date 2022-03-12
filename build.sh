@@ -133,7 +133,7 @@ FUNC_BUILD_RAMDISK()
 	cd $RDIR/build
 	mkdir temp
 	cp -rf aik/. temp
-	cp -rf Q/. temp
+	cp -rf S/. temp
 
 	rm -f temp/split_img/boot.img-zImage
 	rm -f temp/split_img/boot.img-dtb

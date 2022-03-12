@@ -25,9 +25,9 @@ rm -f $RDIR/arch/$ARCH/boot/boot.img-dtb
 rm -f $RDIR/arch/$ARCH/boot/boot.img-zImage
 
 # Recreate Ramdisk Placeholders
-touch build/Q/ramdisk/apex/.placeholder
-touch build/Q/ramdisk/debug_ramdisk/.placeholder
-touch build/Q/ramdisk/dev/.placeholder
-touch build/Q/ramdisk/mnt/.placeholder
-touch build/Q/ramdisk/proc/.placeholder
-touch build/Q/ramdisk/sys/.placeholder
+touch build/S/ramdisk/apex/.placeholder
+touch build/S/ramdisk/debug_ramdisk/.placeholder
+touch build/S/ramdisk/dev/.placeholder
+touch build/S/ramdisk/mnt/.placeholder
+touch build/S/ramdisk/proc/.placeholder
+touch build/S/ramdisk/sys/.placeholder
